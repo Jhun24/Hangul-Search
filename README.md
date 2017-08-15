@@ -8,7 +8,15 @@
 
 > response
 
->> 단어의 뜻 XML
+> Succcess :
+
+>> status : 200
+ 
+>> word : 단어의 뜻 XML
+
+> Fail : 
+
+>> stauts : 404
 
 ### /GET : /parse/translate?word=단어이름
 
@@ -18,4 +26,12 @@
 
 > response
 
->> 번역한 영단어
+> Success :
+
+>> stauts : 200
+
+>> word : 번역한 영단어
+
+> Fail : 
+
+> status : 
