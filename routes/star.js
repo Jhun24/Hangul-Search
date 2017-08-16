@@ -26,7 +26,7 @@ function rank(app,wordModel) {
               });
           }
        });
-    });
+    })
 
     app.get('/rank/star/minus',(req,res)=>{
         var word = req.query.word;
