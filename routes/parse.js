@@ -4,7 +4,7 @@
 
 module.exports = parse;
 
-function parse(app, request,shangus){
+function parse(app, request,shangus,wordModel){
     app.get('/parse/word',(req,res)=> {
         "use strict";
         var word = req.query.word;
@@ -29,7 +29,43 @@ function parse(app, request,shangus){
             for(var i = 1; i<arr.length; i++){
                 json+="<item>"+arr[i];
             }
-            res.send(json);
+            if(json == ""){
+                res.send(404);
+            }
+            else{
+                wordModel.find({"word":word},(err,model)=>{
+                   if(err) throw err;
+
+                   if(model.length == 0){
+                       var saveWordModel = new wordModel({
+                           "word":word,
+                           "weekSearch":"1",
+                           "monthSearch":"1",
+                           "star":"0"
+                       });
+
+                       saveWordModel.save((error,m)=>{
+                          if(error) throw error;
+                           res.send({
+                               "status":200,
+                               "word":json
+                           });
+                       });
+                   }
+                   else{
+                       var weekSearch = model[0]["weekSearch"] + 1;
+                       var monthSearch = model[0]["monthSearch"] + 1;
+
+                       wordModel.update({"word":word},{$set:{"weekSearch":weekSearch,"monthSearch":monthSearch}},(error,m)=>{
+                          if(error) throw error;
+                          res.send({
+                              "status":200,
+                              "word":word
+                          });
+                       });
+                   }
+                });
+            }
         });
     });
 

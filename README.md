@@ -34,4 +34,40 @@
 
 > Fail : 
 
-> status : 
+> status : 404
+ 
+### /GET : /parse/star/plus?word=단어이름
+
+> require
+
+>> word : 스타를 추가할 단어
+
+> response
+
+> Success :
+
+>> stauts : 200
+
+>> star : 햔제 스타 개수
+
+> Fail :
+
+>> status : 404
+
+### /GET : /parse/star/minus?word=단어이름
+
+> require
+
+>> word : 스타를 깎을 단어
+
+> response
+
+> Success :
+
+>> stauts : 200
+
+>> star : 햔제 스타 개수
+
+> Fail :
+
+>> status : 404

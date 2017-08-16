@@ -19,11 +19,6 @@ db.once('open', function callback () {
     console.log("MongoDB connect Success");
 });
 
-var word = mongoose.Schema({
-    name:String,
-    description:String
-});
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 
@@ -38,8 +33,17 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+var word = mongoose.Schema({
+    word:String,
+    weekSearch:String,
+    monthSearch:String,
+    star:String
+});
 
-require('./routes/parse')(app,request,shangus);
+var wordModel = mongoose.model('wordModel',word);
+
+require('./routes/parse')(app,request,shangus,wordModel);
+require('./routes/star')(app,wordModel);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
