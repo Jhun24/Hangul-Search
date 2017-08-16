@@ -71,3 +71,53 @@
 > Fail :
 
 >> status : 404
+
+### /GET : /rank/week
+
+> require 
+
+>> 없음
+
+> Success : 
+
+>> status : 200
+
+>> rank : 주간 따봉으로 정렬된 Array
+
+> Fail
+
+>> status : 404
+
+### /GET : /rank/month
+
+> require 
+
+>> 없음
+
+> Success : 
+
+>> status : 200
+
+>> rank : 월간 따봉으로 정렬된 Array
+
+> Fail
+
+>> status : 404
+
+
+### /GET : /rank/star
+
+> require 
+
+>> 없음
+
+> Success : 
+
+>> status : 200
+
+>> rank : 즐찿으로 정렬된 Array
+
+> Fail
+
+>> status : 404
+
