@@ -18,6 +18,23 @@
 
 >> stauts : 404
 
+### /GET : /parse/word/android?word=단어이름
+
+> require
+
+>> word : 검색할 단어
+
+> response
+
+> Succcess :
+
+ 
+>> 단어의 뜻 XML
+
+> Fail : 
+
+>> stauts : 404
+
 ### /GET : /parse/translate?word=단어이름
 
 > require
