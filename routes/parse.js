@@ -39,9 +39,9 @@ function parse(app, request,shangus,wordModel){
                    if(model.length == 0){
                        var saveWordModel = new wordModel({
                            "word":word,
-                           "weekSearch":"1",
-                           "monthSearch":"1",
-                           "star":"0"
+                           "weekSearch":1,
+                           "monthSearch":1,
+                           "star":0
                        });
 
                        saveWordModel.save((error,m)=>{
@@ -60,7 +60,7 @@ function parse(app, request,shangus,wordModel){
                           if(error) throw error;
                           res.send({
                               "status":200,
-                              "word":word
+                              "word":json
                           });
                        });
                    }

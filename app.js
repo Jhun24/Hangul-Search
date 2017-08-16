@@ -9,6 +9,8 @@ var randomstring = require('randomstring');
 var request = require('request');
 var shangus = require('xml2json');
 
+var arraySort = require('array-sort');
+
 var app = express();
 
 
@@ -35,15 +37,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var word = mongoose.Schema({
     word:String,
-    weekSearch:String,
-    monthSearch:String,
-    star:String
+    weekSearch:Number,
+    monthSearch:Number,
+    star:Number
 });
 
 var wordModel = mongoose.model('wordModel',word);
 
 require('./routes/parse')(app,request,shangus,wordModel);
 require('./routes/star')(app,wordModel);
+require('./routes/rank')(app,wordModel,arraySort);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
