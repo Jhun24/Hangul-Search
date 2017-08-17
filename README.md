@@ -54,7 +54,7 @@
 
 > status : 404
  
-### /GET : /parse/star/plus?word=단어이름
+### /GET : /rank/star/plus?word=단어이름
 
 > require
 
@@ -72,7 +72,7 @@
 
 >> status : 404
 
-### /GET : /parse/star/minus?word=단어이름
+### /GET : /rank/star/minus?word=단어이름
 
 > require
 
