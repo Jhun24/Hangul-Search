@@ -33,6 +33,7 @@
 
 > Fail : 
 
+
 >> stauts : 404
 
 ### /GET : /parse/translate?word=단어이름

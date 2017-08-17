@@ -7,7 +7,7 @@ function rank(app,wordModel) {
     var timer = 0;
     var timer2 = 0;
     "use strict";
-    app.get('/rank/star/add',(req,res)=>{
+    app.get('/rank/star/plus',(req,res)=>{
        var word = req.query.word;
 
        wordModel.find({"word":word},(err,model)=>{
